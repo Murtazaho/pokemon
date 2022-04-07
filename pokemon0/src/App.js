@@ -1,8 +1,9 @@
 import React from 'react';
 import './App.css';
-import {Route, NavLink, Navigate, Routes} from "react-router-dom"
+import {Routes, Route, NavLink, Navigate} from 'react-router-dom';
 import PokemonList from './containers/PokemonList';
 import Pokemon from './containers/Pokemon';
+
 function App() {
   return (
     <div className="App">
@@ -10,11 +11,10 @@ function App() {
         <NavLink to={"/"}>Search</NavLink>
       </nav>
       <Routes>
-        <Route exact path={"/"} element={<PokemonList />} />
-        <Route exact path={"/pokemon/:pokemon"} element={<Pokemon/>} />
-        <Route path="*" element={<Navigate to="/" />} />
+        <Route path={"/"} element={<PokemonList />} />
+        <Route path={"/pokemon/:pokemon"} element={<Pokemon />} />
+        <Route path="*" element={<Navigate replace to="/" />} />
       </Routes>
-      
     </div>
   );
 }
